@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EBENEZER INTERIOR & EXTERIOR</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#0f0f0f;
+color:white;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:#111;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+nav h1{
+color:#c8a96a;
+font-size:22px;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+}
+
+nav ul li{
+margin-left:25px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:white;
+font-size:15px;
+transition:0.3s;
+}
+
+nav ul li a:hover{
+color:#c8a96a;
+}
+
+.hamburger {
+  display: none;
+}
+
+/* HERO SLIDER */
+
+.hero{
+height:90vh;
+position:relative;
+overflow:hidden;
+}
+
+.slide{
+position:absolute;
+width:100%;
+height:100%;
+background-size:cover;
+background-position:center;
+opacity:0;
+transition:1s;
+}
+
+.slide.active{
+opacity:1;
+}
+
+.overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.overlay h2{
+font-size:48px;
+letter-spacing:3px;
+}
+
+.overlay p{
+margin-top:15px;
+color:#c8a96a;
+font-size:18px;
+}
+
+/* SERVICES */
+
+.services{
+padding:80px 10%;
+text-align:center;
+}
+
+.services h2{
+color:#c8a96a;
+margin-bottom:40px;
+font-size:32px;
+}
+
+.service-box{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+}
+
+.card{
+background:#1a1a1a;
+padding:30px;
+border-radius:8px;
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 20px rgba(200,169,106,0.5);
+}
+
+.card h3{
+color:#c8a96a;
+margin-bottom:10px;
+}
+
+/* GALLERY */
+
+.gallery{
+padding:80px 10%;
+text-align:center;
+}
+
+.gallery h2{
+color:#c8a96a;
+margin-bottom:40px;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.gallery-grid img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:6px;
+transition:0.4s;
+}
+
+.gallery-grid img:hover{
+transform:scale(1.05);
+}
+
+/* CONTACT */
+
+.contact{
+padding:60px 10%;
+text-align:center;
+background:#111;
+}
+
+.contact h2{
+color:#c8a96a;
+margin-bottom:20px;
+}
+
+/* FOOTER */
+
+footer{
+background:black;
+text-align:center;
+padding:20px;
+color:#aaa;
+font-size:14px;
+}
+
+/* GALLERY */
+
+.gallery{
+padding:80px 10%;
+text-align:center;
+}
+
+.gallery h2{
+color:#c8a96a;
+margin-bottom:40px;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.gallery-grid img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:6px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.gallery-grid img:hover{
+transform:scale(1.05);
+}
+
+/* VIEWER (FULL IMAGE) */
+
+.viewer{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+justify-content:center;
+align-items:center;
+z-index:2000;
+}
+
+.viewer img{
+max-width:90%;
+max-height:90%;
+}
+
+.close{
+position:absolute;
+top:20px;
+right:40px;
+font-size:40px;
+color:white;
+cursor:pointer;
+}
+
+@media(max-width:768px){
+
+.overlay h2{
+font-size:30px;
+}
+
+.hamburger {
+  display: block;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.nav-links {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #111;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+.nav-links.active {
+  display: flex;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+ <nav class="navbar">
+    <div class="logo">EBENEZER INTERIOR</div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#works">Works</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="hamburger" id="hamburger">
+      ☰
+    </div>
+  </nav>
+
+<!-- HERO SLIDER -->
+
+<section class="hero" id="home">
+
+<div class="slide active" style="background-image:url('images/bgimages/1.jpg')"></div>
+<div class="slide" style="background-image:url('images/bgimages/2.jpg')"></div>
+<div class="slide" style="background-image:url('images/bgimages/3.jpg')"></div>
+<div class="slide" style="background-image:url('images/bgimages/4.jpg')"></div>
+<div class="slide" style="background-image:url('images/bgimages/5.jpg')"></div>
+<div class="overlay">
+<div>
+<h2>EBENEZER INTERIOR & EXTERIOR</h2>
+<p>Transforming Spaces with Aluminium, Wood & Elegant Interiors</p>
+</div>
+</div>
+
+</section>
+<script src="script.js"></script>
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+
+<h2>Our Services</h2>
+
+<div class="service-box">
+
+<div class="card">
+<h3>Aluminium Works</h3>
+<p>Premium aluminium fabrication for windows, doors & railings.</p>
+</div>
+
+<div class="card">
+<h3>Wood Works</h3>
+<p>Modern TV units, cupboards & furniture designs.</p>
+</div>
+
+<div class="card">
+<h3>Long Curtains</h3>
+<p>Elegant curtain fittings for modern interiors.</p>
+</div>
+
+<div class="card">
+<h3>UPVC Windows</h3>
+<p>Durable UPVC windows and sliding doors.</p>
+</div>
+
+<div class="card">
+<h3>Ceiling Works</h3>
+<p>PVC, POP & grid ceiling interior solutions.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="gallery" id="works">
+
+<h2>Our Works</h2>
+
+<div style="margin-bottom:50px;">
+
+<a href="#glass"><button>Glass Windows</button></a>
+<a href="#mess"><button>Mess Doors</button></a>
+<a href="#sliding"><button>Sliding Doors</button></a>
+<a href="#wood"><button>Wood Works</button></a>
+<a href="#curtains"><button>Curtains</button></a>
+<a href="#upvc"><button>UPVC</button></a>
+
+
+</div>
+
+<h3 id="glass">Glass Windows</h3>
+<div class="gallery-grid">
+<img src="images/glasswindows/1.jpg" alt="Glass Windows">
+<img src="images/glasswindows/2.jpg" alt="Glass Windows">
+<img src="images/glasswindows/3.jpg" alt="Glass Windows">
+</div>
+
+<h3 id="mess">Mess Doors</h3>
+<div class="gallery-grid">
+<img src="images/messdoors/1.jpg" alt="Mess Doors">
+<img src="images/messdoors/2.jpg" alt="Mess Doors">
+<img src="images/messdoors/3.jpg" alt="Mess Doors">
+</div>
+
+<h3 id="sliding">Sliding Doors</h3>
+<div class="gallery-grid">
+<img src="images/slidingdoors/1.jpg" alt="Sliding Doors">
+<img src="images/slidingdoors/2.jpg" alt="Sliding Doors">
+<img src="images/slidingdoors/3.jpg" alt="Sliding Doors">
+</div>
+
+<h3 id="wood">Wood Works</h3>
+<div class="gallery-grid">
+<img src="images/woodworks/1.jpg" alt="Wood Works">
+<img src="images/woodworks/2.jpg" alt="Wood Works">
+<img src="images/woodworks/3.jpg" alt="Wood Works">
+</div>
+
+<h3 id="upvc">UPVC Works</h3>
+<div class="gallery-grid">
+<img src="images/upvcceilings/1.jpg" alt="UPVC Works">
+<img src="images/upvcceilings/2.jpg" alt="UPVC Works">
+<img src="images/upvcceilings/3.jpg" alt="UPVC Works">
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+
+<section class="contact" id="contact">
+
+<h2>Contact Us</h2>
+
+<p>📍 Kovvada, Kakinada Rural</p>
+<p>📞 98483 94443</p>
+<p>📧 ebenezer.kkd@gmail.com</p>
+
+</section>
+
+<footer>
+
+© 2026 EBENEZER INTERIOR & EXTERIOR
+
+</footer>
+
+
+<!-- FULL SCREEN IMAGE VIEWER -->
+
+<div id="imageViewer" class="viewer">
+
+<span class="close">&times;</span>
+
+<img id="fullImage">
+
+</div>
+
+<script>
+
+function openImage(src){
+
+document.getElementById("imageViewer").style.display="block";
+document.getElementById("fullImage").src=src;
+
+}
+
+function closeImage(){
+
+document.getElementById("imageViewer").style.display="none";
+
+}
+
+
+
+let slides=document.querySelectorAll('.slide');
+let index=0;
+
+function changeSlide(){
+slides[index].classList.remove('active');
+index=(index+1)%slides.length;
+slides[index].classList.add('active');
+}
+
+setInterval(changeSlide,4000);
+
+
+/* IMAGE CLICK VIEWER */
+
+var viewer = document.getElementById("imageViewer");
+var viewerImg = document.getElementById("fullImage");
+var closeBtn = document.querySelector(".close");
+
+var images = document.querySelectorAll(".gallery-grid img");
+
+images.forEach(function(img){
+
+img.addEventListener("click", function(){
+
+viewer.style.display="block";
+viewerImg.src=this.src;
+
+});
+
+});
+
+closeBtn.onclick=function(){
+viewer.style.display="none";
+}
